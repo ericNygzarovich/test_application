@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+import 'moduls/main_screen/main_screen.dart';
+
 void main() {
   runApp(const TestApp());
 }
@@ -9,21 +12,23 @@ class TestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "TestApp",
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('TestApp'),
+      home: HomeNavigationScreen(
+        screens: const [
+          MainScreen(),
+          MainScreen(),
+          MainScreen(),
+          MainScreen(),
+          MainScreen(),
+        ],
+        navigation: const [
+          HomeNavigationData(icon: Icons.home, label: 'Главня'),
+          HomeNavigationData(icon: Icons.movie_outlined, label: 'Каталог'),
+          HomeNavigationData(icon: Icons.favorite_outline, label: 'Мое'),
+          HomeNavigationData(icon: Icons.tv, label: 'ТВ-каналы'),
+          HomeNavigationData(icon: Icons.person_outline, label: 'Профиль'),
+        ],
       ),
     );
   }
