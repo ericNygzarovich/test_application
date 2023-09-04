@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_repository/test_repository.dart';
 
 class HomeNavigationData {
   final IconData icon;
@@ -33,6 +34,8 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
   @override
   void initState() {
     super.initState();
+
+    print(TestRepository().name);
 
     _controller = PageController(
       initialPage: _startPage,
