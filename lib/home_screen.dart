@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_repository/test_repository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/tvoe_bloc.dart';
 
 class HomeNavigationData {
   final IconData icon;
@@ -35,7 +37,7 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
   void initState() {
     super.initState();
 
-    print(TestRepository().name);
+    context.read<TvoeBloc>().add(GetData());
 
     _controller = PageController(
       initialPage: _startPage,

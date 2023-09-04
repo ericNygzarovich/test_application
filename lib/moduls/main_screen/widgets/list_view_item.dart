@@ -2,7 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:test_app/moduls/main_screen/widgets/custom_progress_liner_indicator.dart';
 
 class ListViewItem extends StatelessWidget {
-  const ListViewItem({super.key});
+  final String currentTime;
+  final String image;
+  final String nameOfMovie;
+  final String currentSeries;
+  final String currenSeason;
+  final double currentViewingPosition;
+
+  const ListViewItem({
+    super.key,
+    required this.currentSeries,
+    required this.currentViewingPosition,
+    required this.image,
+    required this.nameOfMovie,
+    required this.currenSeason,
+    required this.currentTime,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +37,8 @@ class ListViewItem extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       height: 156,
-                      child: Image.network(
-                        'https://fastotvet.ru/wp-content/uploads/2022/12/ehuunccleppennnnmcce-min.jpg',
+                      child: Image.asset(
+                        image,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -44,10 +59,10 @@ class ListViewItem extends StatelessWidget {
                           Radius.circular(6),
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          '12:35',
-                          style: TextStyle(
+                          currentTime,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 12,
                           ),
@@ -68,18 +83,18 @@ class ListViewItem extends StatelessWidget {
               ),
             ),
           ),
-          const Text(
-            'Уэнсдей',
-            style: TextStyle(
+          Text(
+            nameOfMovie,
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
           const SizedBox(height: 4),
-          const Text(
-            '1 сезон 4 серия',
-            style: TextStyle(
+          Text(
+            '$currenSeason сезон $currentSeries серия',
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 14,
